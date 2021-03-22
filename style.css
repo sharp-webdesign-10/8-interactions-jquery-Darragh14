@@ -1,57 +1,13 @@
-h1, h4{
-    text-align: center;
-}
 body{
-    overflow: hidden;
-    height: 100%;
+  background: #000;
 }
 
-.box{
-    border: 1px solid #bbb;
-    border-radius: 4px;
-    box-sizing: border-box !important; /* use "important" to override grid rule */
-    height: 300px !important; /* use "important" to override grid rule */
-    width: 430px !important;
-    position: relative; /* declare this so child elem positions are scoped inside */
+#container{
+  max-width: 1400px;
+  margin:auto;
 }
 
-#speedcar{
-    width: 50px;
-    height: 50px;
-    background: url('car.gif');
-    background-size: contain;
-    background-repeat: no-repeat;
-
-    position: absolute; /* b/c parent has position set, the coordinates are relative to the parent */
-    bottom: 175px;
-    left: 180px;
-}
-
-#bouncy_ball{
-    width: 20px;
-    height: 20px;
-    background: url('ball.jpg');
-    background-size: contain;
-    background-repeat: no-repeat;
-
-    position: absolute; /* b/c parent has position set, the coordinates are relative to the parent */
-    bottom: 200px;
-    left: 1px;
-}
-
-#thesky{
-    background-color: rgba(255, 255, 255, 1);
-}
-#nyspace{
-    cursor: none;
-}
-
-#cat{
-    height: 70px;
-    width: 70px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-image: url('cat.gif');
-
-    position: absolute; /* b/c parent has position set, the coordinates are relative to the parent */
+#my-canvas{
+  background: #000;
+  border: 1px solid #FFF;
 }
