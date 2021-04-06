@@ -3,8 +3,11 @@
 let canvas;
 let ctx;
 let canvasWidth = 1400;
-let canvasHeight = 1000;
+let canvasHeight = 800;
+let ship;
 let keys = [];
+let bullets = [];
+let asteroids = [];
 
 document.addEventListener('DOMContentLoaded', SetupCanvas);
 
@@ -15,12 +18,14 @@ function SetupCanvas(){
   canvas.height = canvasHeight;
   ctx.fillstyle = 'black';
   ctx.fillRect(0,0, canvas.width, canvas.height);
+  ship = new Ship();
   document.body.addEventListener("keydown", function(e){
     keys[e.keyCode] = true;
 });
 document.body.addEventListener("keyup", function(e){
   keys[e.keyCode] = false;
 });
+
 Render();
 }
 
@@ -32,11 +37,11 @@ class Ship {
     this.movingForward = false;
     this.speed = 0.1;
     this.velX = 0;
-    this.VelY = 0;
+    this.velY = 0;
     this.rotateSpeed = 0.001;
     this.radius = 15;
     this.angle = 0;
-    this.strokeColour = 'white';
+    this.strokeColour = '#ffffff';
   }
   Rotate(dir){
     this.angle += this.rotateSpeed * dir;
@@ -45,6 +50,11 @@ class Ship {
     let radians = this.angle / Math.PI * 180;
     if(this.movingForward){
       this.velX += Math.cos(radians) * this.speed;
+
+      console.log("speed: " + this.speed);
+      console.log("sin rad: " + Math.sin(radians));
+      console.log("velY: " + this.velY);
+
       this.velY += Math.sin(radians) * this.speed;
     }
     if(this.x < this.radius){
@@ -76,10 +86,13 @@ class Ship {
     }
     ctx.closePath();
     ctx.stroke();
+
   }
 }
 
-let ship = new Ship();
+class Bullet{
+   
+}
 
 function Render(){
   ship.movingForward = (keys[87]);
@@ -89,8 +102,10 @@ function Render(){
   if(keys[65]){
     ship.Rotate(-1);
   }
+
   ctx.clearRect(0,0,canvasWidth,canvasHeight);
   ship.Update();
   ship.Draw();
+
    requestAnimationFrame(Render);
 }
