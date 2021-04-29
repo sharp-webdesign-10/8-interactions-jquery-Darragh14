@@ -7,7 +7,7 @@ let ship;
 let bullets = [];
 let asteroids = [];
 let score = 0;
-let lives = 3;
+let lives = 100;
 
 
 let highScore;
@@ -63,7 +63,7 @@ class Ship {
         this.rotateSpeed = 0.001;
         this.radius = 15;
         this.angle = 0;
-        this.strokeColor = 'white';
+        this.strokeColor = 'red';
         this.noseX = canvasWidth / 2 + 2;
         this.noseY = canvasHeight / 2;
     }
@@ -149,7 +149,7 @@ class Asteroid{
         this.speed = 3;
         this.radius = radius || 50;
         this.angle = Math.floor(Math.random() * 359);
-        this.strokeColor = 'white';
+        this.strokeColor = 'blue';
         this.collisionRadius = collisionRadius || 46;
 
         this.level = level || 1;
