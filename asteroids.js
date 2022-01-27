@@ -7,7 +7,7 @@ let ship;
 let bullets = [];
 let asteroids = [];
 let score = 0;
-let lives = 100;
+let lives = 3;
 
 
 let highScore;
